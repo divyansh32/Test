@@ -1,0 +1,30 @@
+{
+  "Details": [
+    {
+      "id": 1,
+      "name": "Divyansh",
+      "pass": "123456",
+      "email": "DPandey98@gmail.com",
+      "phone": "7007689789",
+      "gender": "Male",
+      "age": 24,
+      "city": "lucknow",
+      "state": "UP",
+      "pincode": 226003,
+      "country": "India"
+    },
+    {
+      "name": "Divyansh Pandey",
+      "pass": "123456",
+      "email": "Divyanshpandey98@gmail.com",
+      "phone": "+917007689789",
+      "gender": "male",
+      "age": "24",
+      "city": "Lucknow",
+      "state": "Uttar Pradesh",
+      "pincode": "226003",
+      "country": "India",
+      "id": 2
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+</head>
+<script>
+    function save() {
+        var name = document.getElementById("name").value;
+        var pass = document.getElementById("pass").value;
+        var email = document.getElementById("email").value;
+        var phone = document.getElementById("phone").value;
+        var gender = document.getElementById("gender").value;
+        var age = document.getElementById("age").value;
+        var city = document.getElementById("city").value;
+        var state = document.getElementById("state").value;
+        var pincode = document.getElementById("pincode").value;
+        var country = document.getElementById("country").value;
+        if (email!= null && pass!=null){
+        fetch("http://localhost:3000/Details", {
+            method: "POST",
+            body: JSON.stringify({ "name": name,"pass": pass, "email": email, "phone": phone, "gender": gender, "age": age, "city": city, "state": state, "pincode": pincode, "country": country }),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(response => response.json())
+            .then(response => { console.log(response) });
+        
+        alert("data saved");
+    }
+    else{
+        alert("Please enter mandatory fields");
+    }
+    }
+
+    function reset() {
+        document.getElementById("Signup_div").reset();
+    }
+</script>
+<style>
+    body {
+        background-color: grey;
+    }
+
+    #Signup_div {
+        border: 1px solid white;
+        width: fit-content;
+        padding: 25px 20px 25px 20px;
+        text-align: center;
+        margin: auto;
+        margin-top: 10px;
+        color: black;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
+
+
+<body>
+    <h2>Enter Details</h2>
+    <div id="Signup_div">
+            Username: <input type="text" id="name" /><br /><br />
+            Password: <input type="text" id="pass" /><br /><br />
+            Email: <input type="text" id="email" /><br /><br />
+            Phone: <input type="text" id="phone" /><br /><br />
+            Gender: <input type="text" id="gender" /><br /><br />
+            Age: <input type="text" id="age" /><br /><br />
+            City: <input type="text" id="city" /><br /><br />
+            State: <input type="text" id="state" /><br /><br />
+            Pincode: <input type="text" id="pincode" /><br /><br />
+            Country: <input type="text" id="country" /><br /><br />
+            <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+            <input type="button" onclick="save()" value="Submit" />
+            <input type="button" onclick="reset()" value="Cancel" />
+    </div>
+</body>
+
+</html>

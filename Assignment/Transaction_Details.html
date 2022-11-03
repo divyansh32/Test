@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+        table {
+   border: 1px solid black;
+   background-color: black;
+   color: white;
+}
+th, td {
+   border: 1px solid black;
+   padding: 20px;
+   text-align: center;
+}
+#Transactions{
+        border:2px solid black;
+        width:fit-content;
+        padding: 25px 20px 25px 20px;
+        text-align: center;
+        margin: auto;
+        margin-top: 10px;
+        color: brown;
+    }
+
+
+</style>
+<script>
+    fetch("http://localhost:3000/Transactions",{
+           method:"GET",
+           headers:{
+               "Content-Type": "application/json"
+           }
+       }).then(response=>response.json())
+       .then(response=>{console.log(response);
+           let tab=`<tr>
+               <th>ID</th>
+               <th>Name</th>
+               <th>Amount</th>
+               <th>Expiry_Month</th>
+               <th>Expiry_Year</th>
+               </tr>`;
+               for(let d of response){
+                   tab += `<tr>
+           <td>${d.id}</td>
+           <td>${d.cardname}</td>
+           <td>${d.cardnumber}</td>
+           <td>${d.expmonth}</td>
+           <td>${d.expyear}</td>
+           </tr>`
+               }
+            document.getElementById("transaction-details").innerHTML=tab; 
+       });
+</script>
+
+<body>
+    <div id="Transactions">
+        <h1>List Listing</h1>
+        <table id ="transaction-details">
+        </table>
+    </div>
+</body>
+</html>
