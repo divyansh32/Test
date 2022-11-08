@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: grey;
+    }
+    #login_div{
+        border: 1px solid red;
+        width:fit-content;
+        padding: 25px 20px 25px 20px;
+        text-align: center;
+        margin: auto;
+        margin-top: 10px;
+        color: brown;
+    }
+    
+</style>
+<script>
+    function validate(){
+        var email= document.getElementById("email").value
+        var pass= document.getElementById("password").value
+        var res;
+        var flag;
+        fetch("http://localhost:3000/Users",{
+           method:"GET",
+           headers:{
+               "Content-Type": "application/json"
+           }
+       }).then(response=>response.json())
+       .then(response=>{console.log(response);
+         res=response,flag=0
+        for(let d of response){
+            if(d.email==email && d.pass==pass){
+                flag=1;
+            }
+        }
+            if(flag==1){
+            window.location.href = "D:\\Program Files\\ui\\json_user_ways\\Assesment2\\Users.html";
+        }
+            else{
+                alert('invalid credential');
+            }
+        
+    })
+}
+
+       
+</script>
+<body>
+    <div id="login_div">
+        <h2>Login</h2>
+            Username:<input type="text" id="email" /> <br/><br/>
+            Password:<input type="password" id="password" /><br/><br/>
+            <input type="button" onclick="validate()" value="Login">
+    </div>
+</body>
+</html>

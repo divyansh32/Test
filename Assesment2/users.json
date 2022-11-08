@@ -1,0 +1,20 @@
+{
+  "Users": [
+    {
+      "id": 1,
+      "fname": "Divyansh",
+      "lname": "Pandey",
+      "email": "Dpandey98@gmail.com",
+      "pass": "123456",
+      "phone": "7007689789"
+    },
+    {
+      "fname": "Divyansh",
+      "lname": "Pandey",
+      "email": "Divyanshpandey98@gmail.com",
+      "pass": "1122334455",
+      "phone": "+917007689789",
+      "id": 2
+    }
+  ]
+}
